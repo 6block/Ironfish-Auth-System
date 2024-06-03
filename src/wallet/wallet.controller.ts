@@ -21,11 +21,6 @@ export class WalletController {
     return this.walletService.createToken();
   }
 
-  @Get('all')
-  async getAllTokens(): Promise<WalletToken[]> {
-    return this.walletService.getAllTokens();
-  }
-
   @ApiOperation({ summary: 'Import address to your token' })
   @ApiBody({ type: ImportWalletDto })
   @Post('importAccount')
