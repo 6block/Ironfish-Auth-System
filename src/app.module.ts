@@ -6,16 +6,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { mongodbUri, mongodbConfig } from './config/config.mongodb';
 import { RpcClientModule } from './rpc/rpc.module';
 import { WalletModule } from './wallet/wallet.module';
-import { ApiModule } from './api/api.module';
 
 @Module({
-  imports: [
-    MongooseModule.forRoot(mongodbUri, mongodbConfig),
-    ScheduleModule.forRoot(),
-    WalletModule,
-    RpcClientModule,
-    ApiModule,
-  ],
+  imports: [MongooseModule.forRoot(mongodbUri, mongodbConfig), ScheduleModule.forRoot(), WalletModule, RpcClientModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -8,7 +8,6 @@ import {
   GetTransactionsParamsDto,
   ImportWalletDto,
 } from './wallet.dto';
-import { WalletToken } from 'src/schemas/walletToken.schema';
 
 @ApiTags('wallet')
 @Controller('wallet')
