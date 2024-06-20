@@ -10,9 +10,18 @@ async function bootstrap() {
     .setDescription('Ironfish Auth System API DOCS')
     .setVersion('1.0')
     .build();
-  const swaggerDoc = SwaggerModule.createDocument(app, swaggerOptions);
+  let swaggerDoc = SwaggerModule.createDocument(app, swaggerOptions);
+
+  swaggerDoc = {
+    ...swaggerDoc,
+    paths: Object.keys(swaggerDoc.paths).reduce((paths, path) => {
+      paths[`/wallet${path}`] = swaggerDoc.paths[path];
+      return paths;
+    }, {})
+  };
+
   SwaggerModule.setup('/docs', app, swaggerDoc);
 
-  await app.listen(3000);
+  await app.listen(60013);
 }
 bootstrap();

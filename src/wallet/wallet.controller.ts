@@ -10,7 +10,7 @@ import {
 } from './wallet.dto';
 
 @ApiTags('wallet')
-@Controller('wallet')
+@Controller('/')
 export class WalletController {
   constructor(private readonly walletService: WalletService) {}
 
